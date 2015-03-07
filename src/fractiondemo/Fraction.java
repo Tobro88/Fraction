@@ -33,9 +33,9 @@ public class Fraction {
         // Here comes the constructor
 
         if (denominatorArgument == 0) {
-            System.out.println("Denominator can not be zero.");
-            System.out.println("Numerator set to 0,");
-            System.out.println("and Denominator set to 1");
+            //System.out.println("Denominator can not be zero.");
+            //System.out.println("Numerator set to 0,");
+            //System.out.println("and Denominator set to 1");
             this.numerator = 0;
             this.denominator = 1;
             this.greatestCommonDivisor = this.gcdCalculation(0, 1);
@@ -113,7 +113,7 @@ public class Fraction {
 
     /**
      * Compares this Fraction with another Fraction based on the 
-     * simplified numerator and denominator. For example the method returns 
+     * reduced numerator and denominator. For example the method returns 
      * <code>true</code> if 2/4 is compared with 1/2.
      * @param otherFraction the fraction object with which to compare
      * @author Tom
@@ -194,7 +194,7 @@ public class Fraction {
      * @return
      */
     public Fraction reducedSubtract(Fraction otherFraction) {
-        //method to subtract another Fraction from Fraction and simplify result
+        //method to subtract another Fraction from Fraction and reduce result
         //current method is obviously a placeholder
         Fraction resultFraction = new Fraction();
         int a, b;
