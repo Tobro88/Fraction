@@ -6,7 +6,7 @@
 package fractiondemo;
 
 /**
- * @author Tom
+ * @author Tobro88
  */
 public class Fraction {
 
@@ -17,17 +17,14 @@ public class Fraction {
     private int reducedDenominator;
 
     /**
-     * Constructor with defined numerator and denominator values. Denominator
-     * can not be set to zero. If <code>denominatorArgument</code> is zero the Fraction is
-     * initialized with numerator = 0 and denominator =1.
-     * 
-     * In the constructor, also GCD is determined and the Reduced Numerator and
-     * Reduced Denominator are calculated. Since numerator = 0 and denominator = 1
-     * GCD is 1.
-     * 
+     * Constructor with defined numerator and denominator values. Denominator can not be set to zero. If
+     * <code>denominatorArgument</code> is zero the Fraction is initialized with numerator = 0 and denominator =1.
+     *
+     * In the constructor, also GCD is determined and the Reduced Numerator and Reduced Denominator are calculated.
+     *
      * @param numeratorArgument the numerator of the fraction
      * @param denominatorArgument the denominator of the fraction
-     * @author Tom
+     * @author Tobro88
      */
     public Fraction(int numeratorArgument, int denominatorArgument) {
         // Here comes the constructor
@@ -52,14 +49,13 @@ public class Fraction {
     }
 
     /**
-     * Constructor without initial numerator and denominator values. Default
-     * value for numerator = 0, and for denominator = 1.
-     * 
-     * In the constructor, also GCD is determined and the Reduced Numerator and
-     * Reduced Denominator are calculated. Since numerator = 0 and denominator = 1
-     * GCD is 1.
-     * 
-     * @author Tom
+     * Constructor without initial numerator and denominator values. Default value for numerator = 0, and for
+     * denominator = 1.
+     *
+     * In the constructor, also GCD is determined and the Reduced Numerator and Reduced Denominator are calculated.
+     * Since numerator = 0 and denominator = 1 GCD is 1.
+     *
+     * @author Tobro88
      */
     public Fraction() {
         // Constructor in case no numerator/denominator is given yet
@@ -72,15 +68,15 @@ public class Fraction {
     }
 
     /**
-     * @author Tom
-     * true@return
+     * @author Tobro88 true@return
+     * @return
      */
     public int getNumerator() {
         return this.numerator;
     }
 
     /**
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public int getDenominator() {
@@ -88,7 +84,7 @@ public class Fraction {
     }
 
     /**
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public int getGCD() {
@@ -96,7 +92,7 @@ public class Fraction {
     }
 
     /**
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public int getReducedNumerator() {
@@ -104,7 +100,7 @@ public class Fraction {
     }
 
     /**
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public int getReducedDenominator() {
@@ -112,16 +108,15 @@ public class Fraction {
     }
 
     /**
-     * Compares this Fraction with another Fraction based on the 
-     * reduced numerator and denominator. For example the method returns 
-     * <code>true</code> if 2/4 is compared with 1/2.
+     * Compares this Fraction with another Fraction based on the reduced numerator and denominator. For example the
+     * method returns <code>true</code> if 2/4 is compared with 1/2.
+     *
      * @param otherFraction the fraction object with which to compare
-     * @author Tom
-     * @return <code>true</code> if this fraction is the same in reduced form as 
-     * <code>otherFraction</code> in reduced form
+     * @author Tobro88
+     * @return <code>true</code> if this fraction is the same in reduced form as <code>otherFraction</code> in reduced
+     * form
      */
     public boolean isEqualInReducedForm(Fraction otherFraction) {
-
 
         return ((this.reducedNumerator == otherFraction.reducedNumerator)
                 && (this.reducedDenominator
@@ -130,7 +125,7 @@ public class Fraction {
 
     /**
      * @param numeratorArgument
-     * @author Tom
+     * @author Tobro88
      */
     public void setNumerator(int numeratorArgument) {
         //if Numerator is changed other instances also need to be updated
@@ -144,7 +139,7 @@ public class Fraction {
 
     /**
      * @param denominatorArgument
-     * @author Tom
+     * @author Tobro88
      */
     public void setDenominator(int denominatorArgument) {
         //if Denominator is changed other instances also need to be updated
@@ -157,7 +152,7 @@ public class Fraction {
     }
 
     /**
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public double decimalValueOfFraction() {
@@ -165,54 +160,67 @@ public class Fraction {
     }
 
     /**
-     * Returns the result (as a reduced <code>Fraction</code> object) of adding 
-     * otherFraction to the class' instantiation.
+     * Returns the result (as a reduced <code>Fraction</code> object) of adding otherFraction to the class'
+     * instantiation.
+     *
      * @param otherFraction the Fraction that is added
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public Fraction reducedAdd(Fraction otherFraction) {
 
         Fraction resultFraction = new Fraction();
-        int a, b;
+
 
         resultFraction.setNumerator(this.numerator * otherFraction.denominator
                 + this.denominator * otherFraction.numerator);
         resultFraction.setDenominator(this.denominator * otherFraction.denominator);
-        a = resultFraction.reducedNumerator;
-        b = resultFraction.reducedDenominator;
-        resultFraction.setNumerator(a);
-        resultFraction.setDenominator(b);
-        return resultFraction;
+        return new Fraction(resultFraction.reducedNumerator,resultFraction.reducedNumerator);
     }
 
     /**
-     * Returns the result (as a reduced <code>Fraction</code> object) of subtracting 
-     * otherFraction from the class' instantiation.
+     * Returns the result (as a reduced <code>Fraction</code> object) of subtracting otherFraction from the class'
+     * instantiation.
+     *
      * @param otherFraction
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     public Fraction reducedSubtract(Fraction otherFraction) {
         //method to subtract another Fraction from Fraction and reduce result
         //current method is obviously a placeholder
         Fraction resultFraction = new Fraction();
-        int a, b;
+
 
         resultFraction.setNumerator(this.numerator * otherFraction.denominator
                 - this.denominator * otherFraction.numerator);
         resultFraction.setDenominator(this.denominator * otherFraction.denominator);
-        a = resultFraction.reducedNumerator;
-        b = resultFraction.reducedDenominator;
-        resultFraction.setNumerator(a);
-        resultFraction.setDenominator(b);
-        return resultFraction;
+        return new Fraction(resultFraction.reducedNumerator,resultFraction.reducedNumerator);
+    }
+
+    /**
+     * Returns the result (as a reduced <code>Fraction</code> object) of multiplying otherFraction to the class'
+     * instantiation.
+     *
+     * @param otherFraction the Fraction that is added
+     * @author Tobro88
+     * @return
+     */
+    public Fraction reducedMultiply(Fraction otherFraction) {
+
+        Fraction resultFraction = new Fraction();
+
+
+        resultFraction.setNumerator(this.numerator * otherFraction.numerator);
+        resultFraction.setDenominator(this.denominator * otherFraction.denominator);
+
+        return new Fraction(resultFraction.reducedNumerator,resultFraction.reducedNumerator);
     }
 
     /**
      * @param n1
      * @param n2
-     * @author Tom
+     * @author Tobro88
      * @return
      */
     private int gcdCalculation(int n1, int n2) { //Euclidean algorithm
