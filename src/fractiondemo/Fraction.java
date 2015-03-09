@@ -6,9 +6,9 @@ public class Fraction {
     private int denominator;
 
     public Fraction() {
+
         this.numerator = 0;
         this.denominator = 1;
-        this.isReduced = true;
     }
 
     public Fraction(int numeratorArgument, int denominatorArgument) {
@@ -41,19 +41,22 @@ public class Fraction {
         Fraction otherFractionInComparison = new Fraction(otherFraction);
         otherFractionInComparison.reduce();
 
-        return equals(thisFractionInComparison, otherFractionInComparison);
+        return thisFractionInComparison.equals(otherFractionInComparison);
 
     }
 
-    public boolean equals(Fraction fractionA, Fraction fractionB) {
-        return ((fractionA.numerator == fractionB.numerator) && (fractionA.denominator == fractionB.denominator));
+    public boolean equals(Fraction fractionB) {
+
+        return ((numerator == fractionB.numerator) && (denominator == fractionB.denominator));
     }
 
     public boolean isReduced() {
+
         return (gcdCalculation(numerator, denominator) == 1);
     }
 
     public double decimalValueOfFraction() {
+
         return (double) this.numerator / (double) this.denominator;
     }
 
@@ -68,8 +71,7 @@ public class Fraction {
     }
 
     public Fraction reducedSubtract(Fraction otherFraction) {
-        //method to subtract another Fraction from Fraction and reduce result
-        //current method is obviously a placeholder
+
         int resultNumerator = (this.numerator * otherFraction.denominator
                 - this.denominator * otherFraction.numerator);
         int resultDenominator = (this.denominator * otherFraction.denominator);
@@ -88,6 +90,7 @@ public class Fraction {
     }
 
     public Fraction reducedDivide(Fraction otherFraction) {
+
         int resultNumerator = (this.numerator * otherFraction.denominator);
         int resultDenominator = (this.denominator * otherFraction.numerator);
         Fraction resultFraction = new Fraction(resultNumerator, resultDenominator);
@@ -96,18 +99,27 @@ public class Fraction {
     }
 
     public void reduce() {
+
         int gcd = gcdCalculation(numerator, denominator);
         numerator = numerator / gcd;
         denominator = denominator / gcd;
     }
 
     public void invert() {
+
         int temp = numerator;
         numerator = denominator;
         denominator = temp;
     }
 
+    @Override
+    public String toString() {
+
+        return numerator + " / " + denominator;
+    }
+
     private int gcdCalculation(int n1, int n2) { //Euclidean algorithm
+
         if (n2 == 0) {
             return n1;
         } else {

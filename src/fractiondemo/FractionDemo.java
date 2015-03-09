@@ -5,51 +5,40 @@
  */
 package fractiondemo;
 
-/**
- *
- * @author Tom
- */
 public class FractionDemo {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         // TODO code application logic here
-        int numerator = 5;
-        int denominator = 6;
-        int otherNumerator = 1;
-        int otherDenominator = 3;
-
-        int GCD;
+        int numerator = 11;
+        int denominator = 12;
+        int otherNumerator = 3;
+        int otherDenominator = 7;
 
         Fraction demoFractionObject = new Fraction(numerator, denominator);
         Fraction otherDemoFractionObject
                 = new Fraction(otherNumerator, otherDenominator);
         Fraction sumFraction = new Fraction();
         Fraction differenceFraction = new Fraction();
-        GCD = demoFractionObject.getGCD();
-
-        System.out.println(demoFractionObject.getNumerator() + "/" + 
-                demoFractionObject.getDenominator());
-        System.out.println("GCD is " + GCD);
-        if (GCD == 1) {
-            System.out.println("This is also the simplified fraction");
-        } else {
-            System.out.println("Simplified fraction is "
-                    + numerator / GCD + "/" + denominator / GCD);
-        }
-        System.out.println("Approximate value is "
-                + demoFractionObject.decimalValueOfFraction());
-        System.out.println(demoFractionObject.isEqualInReducedForm(otherDemoFractionObject));
-
+        
+        System.out.println("Fraction A: " + demoFractionObject.toString());
+        System.out.println("Fraction A is in its reduced form: "+demoFractionObject.isReduced());
+        
+        Fraction b = new Fraction(demoFractionObject);
+        b.reduce();
+        
+        System.out.println("In reduced form A is: "+b.toString());
+        System.out.println("Fraction B: " + otherDemoFractionObject.toString());
         sumFraction = demoFractionObject.reducedAdd(otherDemoFractionObject);
-        System.out.println("Sum is " + sumFraction.getNumerator() + 
-                "/" + sumFraction.getDenominator());
-
+        System.out.println("Sum: " + sumFraction.toString());
         differenceFraction = demoFractionObject.reducedSubtract(otherDemoFractionObject);
-        System.out.println("Difference is " + differenceFraction.getNumerator() + 
-                "/" + differenceFraction.getDenominator());
+        System.out.println("Difference: " + differenceFraction.toString());
+        System.out.println("Fractions are equal in reduced form: "+
+                demoFractionObject.isEqualInReducedForm(otherDemoFractionObject));
+        System.out.println("Fractions are equal: "+demoFractionObject.equals(otherDemoFractionObject));
+        System.out.println("Decimal value of Fraction A: "+demoFractionObject.decimalValueOfFraction());
+        System.out.println("Ratio of A and B is: "+demoFractionObject.reducedDivide(otherDemoFractionObject));
+        System.out.println("Product of A and B is: "+demoFractionObject.reducedMultiply(otherDemoFractionObject));        
+
     }
 
 }
