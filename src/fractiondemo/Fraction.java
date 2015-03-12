@@ -1,5 +1,7 @@
 package fractiondemo;
 
+import java.lang.*;
+
 public class Fraction {
 
     private int numerator;
@@ -91,6 +93,10 @@ public class Fraction {
 
     public Fraction reducedDivide(Fraction otherFraction) {
 
+        if (otherFraction.numerator==0){
+            System.out.println("Divide by 0 error.");
+            System.exit(0);
+        }
         int resultNumerator = (this.numerator * otherFraction.denominator);
         int resultDenominator = (this.denominator * otherFraction.numerator);
         Fraction resultFraction = new Fraction(resultNumerator, resultDenominator);
@@ -115,7 +121,11 @@ public class Fraction {
     @Override
     public String toString() {
 
-        return numerator + " / " + denominator;
+        if (isNegative()) {
+            return "-(" + Math.abs(numerator) + " / " + Math.abs(denominator) + ")";
+        } else {
+            return Math.abs(numerator) + " / " + Math.abs(denominator);
+        }
     }
 
     private int gcdCalculation(int n1, int n2) { //Euclidean algorithm
@@ -125,6 +135,10 @@ public class Fraction {
         } else {
             return this.gcdCalculation(n2, n1 % n2);
         }
+    }
+
+    private boolean isNegative() {
+        return !((numerator >= 0 && denominator > 0) || (numerator <= 0 && denominator < 0));
     }
 
 }

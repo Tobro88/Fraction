@@ -9,10 +9,10 @@ public class FractionDemo {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        int numerator = 11;
-        int denominator = 12;
-        int otherNumerator = 3;
-        int otherDenominator = 7;
+        int numerator = -3;
+        int denominator = -7;
+        int otherNumerator = 0;
+        int otherDenominator = 12;
 
         Fraction demoFractionObject = new Fraction(numerator, denominator);
         Fraction otherDemoFractionObject
