@@ -16,9 +16,7 @@ public class Fraction {
     public Fraction(int numeratorArgument, int denominatorArgument) {
 
         if (denominatorArgument == 0) {
-            numerator = 0;
-            denominator = 1;
-            return;
+            throw new IllegalArgumentException("denominator can not be 0");
         }
         numerator = numeratorArgument;
         denominator = denominatorArgument;
